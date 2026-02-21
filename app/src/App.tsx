@@ -17,6 +17,7 @@ function App() {
       lenis.destroy();
     };
   }, []);
+
   return (
     <div className="app-container">
       <Navbar />
