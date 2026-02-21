@@ -1082,12 +1082,26 @@ body {
 
   .story-section {
     padding: 0 5%;
+    align-items: center !important;
+    text-align: center !important;
   }
 
   .story-section.align-left,
   .story-section.align-right {
-    align-items: center;
-    text-align: center;
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  /* Add a subtle background to readable text over image on mobile */
+  .story-section h2,
+  .story-section p {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 10px 20px;
+    border-radius: 12px;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    margin-bottom: 8px;
+    width: fit-content;
   }
 
   /* Features */
