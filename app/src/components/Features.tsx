@@ -1,12 +1,14 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
+import type { FC, ReactNode } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import type { Variants } from 'framer-motion';
 
-const FeatureSection: React.FC<{
+const FeatureSection: FC<{
   title: string;
   body: string | string[];
   subline?: string;
   align?: 'left' | 'right' | 'center';
-  visual?: React.ReactNode;
+  visual?: ReactNode;
   id?: string;
 }> = ({ title, body, subline, align = 'center', visual, id }) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -22,7 +24,7 @@ const FeatureSection: React.FC<{
   const alignmentClass = `align-${align}`;
 
   // Variants for staggered text reveals
-  const textContainerVars = {
+  const textContainerVars: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -30,7 +32,7 @@ const FeatureSection: React.FC<{
     }
   };
 
-  const textItemVars = {
+  const textItemVars: Variants = {
     hidden: { opacity: 0, y: 30, filter: 'blur(10px)' },
     show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.8, ease: "easeOut" } }
   };
@@ -91,7 +93,7 @@ const FeatureSection: React.FC<{
   );
 };
 
-const Features: React.FC = () => {
+const Features: FC = () => {
   return (
     <section id="features-section" className="features-container">
       {/* 1. HERO FEATURE INTRO */}

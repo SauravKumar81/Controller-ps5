@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState, useRef } from 'react';
+import type { FC } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 
@@ -53,7 +54,7 @@ const GAMES = [
   }
 ];
 
-const GameCarousel: React.FC = () => {
+const GameCarousel: FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     { loop: true, dragFree: true, align: 'start' },
     [Autoplay({ delay: 4000, stopOnInteraction: true })]
@@ -73,7 +74,7 @@ const GameCarousel: React.FC = () => {
     emblaApi.on('reInit', onSelect);
   }, [emblaApi, onSelect]);
 
-  const sectionRef = React.useRef<HTMLElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

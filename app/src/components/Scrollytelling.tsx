@@ -1,4 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import type { FC } from 'react';
 import { motion } from 'framer-motion';
 
 const FRAME_COUNT = 240;
@@ -6,7 +7,7 @@ const FRAME_COUNT = 240;
 const currentFrame = (index: number) =>
   `/frames/ezgif-frame-${index.toString().padStart(3, '0')}.jpg`;
 
-const Scrollytelling: React.FC = () => {
+const Scrollytelling: FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
