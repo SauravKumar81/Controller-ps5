@@ -295,7 +295,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 0 10%;
+  padding: 0 15%;
+  /* Increased padding to push text away from center */
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s cubic-bezier(0.25, 0.1, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -350,7 +351,8 @@ body {
 }
 
 .section-title {
-  font-size: 3.5rem;
+  font-size: 3rem;
+  /* Slightly smaller to avoid overlap */
   font-weight: 700;
   letter-spacing: -0.03em;
   margin-bottom: 24px;
@@ -359,10 +361,12 @@ body {
 }
 
 .section-body {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
+  /* Slightly smaller */
   line-height: 1.6;
   color: var(--text-secondary);
-  max-width: 450px;
+  max-width: 400px;
+  /* Narrower to stay away from center */
   margin-bottom: 12px;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.6);
 }
