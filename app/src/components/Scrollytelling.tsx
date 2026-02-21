@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
 
 const FRAME_COUNT = 240;
 
@@ -95,18 +96,34 @@ const Scrollytelling: React.FC = () => {
 
   return (
     <div className="scrolly-container" ref={containerRef}>
+      <div className="static-hero-text">
+        <div className="bg-pulse"></div>
+        <motion.h1 
+          className="hero-title haptics-theme"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeOut" }}
+        >
+          Haptics on PlayStation 5
+        </motion.h1>
+        <motion.h2 
+          className="hero-subtitle gradient-text"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
+          Feel Every Moment
+        </motion.h2>
+        <p className="hero-support">The DualSense wireless controller transforms how you experience games.</p>
+      </div>
+
       <div className="sticky-wrapper">
         <div className="canvas-container">
           <canvas ref={canvasRef} className="sequence-image" />
         </div>
 
         <div className="scroll-content">
-          {/* Section 1: Hero (0-15%) */}
-          <div className={`story-section align-center ${getSectionClass(0, 0.15)}`}>
-            <h1 className="hero-title">DualSense Wireless Controller</h1>
-            <h2 className="hero-subtitle">Feel the game.</h2>
-            <p className="hero-support">Next-generation immersion, engineered for PlayStation 5.</p>
-          </div>
+          {/* Section 1: Hero is now static before sticky-wrapper */}
 
           {/* Section 2: Design & Ergonomics (15-35%) */}
           <div className={`story-section align-left ${getSectionClass(0.15, 0.35)}`}>
