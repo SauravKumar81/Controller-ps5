@@ -1033,9 +1033,19 @@ body {
 
 @media (max-width: 850px) {
 
+  /* Basic Setup */
+  body {
+    overflow-x: hidden;
+  }
+
   /* Navbar */
   .navbar {
     padding: 0 20px;
+    height: 60px;
+  }
+
+  .nav-logo {
+    font-size: 1.1rem;
   }
 
   .nav-links {
@@ -1043,43 +1053,60 @@ body {
   }
 
   .btn-cta {
-    padding: 8px 16px;
-    font-size: 0.8rem;
+    padding: 6px 14px;
+    font-size: 0.75rem;
   }
 
   /* Scrollytelling Hero */
+  .scrolly-container {
+    height: 350vh;
+    /* Tighter scroll distance for mobile */
+  }
+
+  .sticky-wrapper {
+    height: 100vh;
+    height: 100dvh;
+    /* Fix for mobile browser UI bar */
+  }
+
   .hero-title,
   .hero-title.haptics-theme {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
 
   .hero-subtitle {
-    font-size: 1.5rem;
+    font-size: 1.25rem;
+    margin-bottom: 16px;
   }
 
   .hero-support {
-    font-size: 1rem;
+    font-size: 0.95rem;
     padding: 0 20px;
+    margin-bottom: 60px;
+    /* Space above so it doesn't get covered completely */
   }
 
   .static-hero-text {
-    padding-bottom: 20vh;
+    height: 100vh;
+    /* Re-declare */
+    height: 100dvh;
+    padding-bottom: 15vh;
+    justify-content: flex-end;
   }
 
   .sequence-image {
-    transform: scale(1);
-    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    /* Forces the canvas to cover instead of leaving weird empty spaces or looking tiny */
+    transform: scale(1.1) !important;
+    border-radius: 0;
+    -webkit-mask-image: none;
+    /* Remove harsh gradient masks on mobile that could cut off important image areas */
+    mask-image: none;
   }
 
-  /* Scrollytelling Content */
-  .section-title {
-    font-size: 2.2rem;
-  }
-
-  .section-body {
-    font-size: 1.1rem;
-  }
-
+  /* Scrollytelling Content overlays */
   .story-section {
     padding: 0 5%;
     align-items: center !important;
@@ -1092,30 +1119,54 @@ body {
     text-align: center !important;
   }
 
-  /* Add a subtle background to readable text over image on mobile */
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 12px;
+  }
+
+  .section-body {
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+  }
+
+  /* Text backdrop to stay readable over full screen image */
   .story-section h2,
   .story-section p {
-    background: rgba(0, 0, 0, 0.4);
-    padding: 10px 20px;
+    background: rgba(4, 4, 6, 0.75);
+    padding: 10px 16px;
     border-radius: 12px;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    margin-bottom: 8px;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    margin-bottom: 10px;
     width: fit-content;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  /* CTA buttons inside scrollytelling */
+  .story-section .cta-group {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    margin-top: 20px;
   }
 
   /* Features */
   .intro-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .intro-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    padding: 0 10px;
   }
 
   .feature-intro {
-    padding: 80px 5%;
-    margin-bottom: 40px;
+    padding: 60px 4% 20px 4%;
+    margin-bottom: 20px;
+  }
+
+  .feature-chapter {
+    min-height: auto;
   }
 
   .feature-chapter,
@@ -1123,23 +1174,25 @@ body {
   .feature-chapter.align-right,
   .feature-chapter.align-center {
     flex-direction: column;
-    padding: 60px 5%;
-    gap: 40px;
+    padding: 40px 5%;
+    gap: 24px;
     text-align: center;
     align-items: center;
   }
 
   .feature-text {
     max-width: 100%;
-    padding: 20px !important;
+    padding: 10px !important;
   }
 
   .feature-title {
-    font-size: 2.2rem;
+    font-size: 1.8rem;
+    margin-bottom: 16px;
   }
 
   .feature-body {
-    font-size: 1.1rem;
+    font-size: 1rem;
+    margin-bottom: 12px;
   }
 
   .feature-visual,
@@ -1147,19 +1200,26 @@ body {
     width: 100%;
     min-width: unset;
     height: auto;
-    min-height: 300px;
-    padding: 30px;
+    min-height: 250px;
+    padding: 20px;
     margin-top: 0;
+  }
+
+  .feature-image-asset,
+  .video-asset {
+    max-width: 100%;
+    height: auto;
   }
 
   /* Feature CTA */
   .feature-cta {
-    padding: 100px 5%;
+    padding: 60px 5%;
+    margin-top: 60px;
   }
 
   .cta-title {
-    font-size: 2.2rem;
-    margin-bottom: 30px;
+    font-size: 1.8rem;
+    margin-bottom: 24px;
   }
 
   .cta-group {
@@ -1174,54 +1234,65 @@ body {
 
   /* Game Carousel */
   .carousel-section {
-    padding: 80px 0 100px 0;
+    padding: 60px 0 80px 0;
   }
 
   .carousel-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
+    margin-bottom: 12px;
   }
 
   .carousel-subtitle {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    padding: 0 10px;
+  }
+
+  .carousel-header {
+    margin-bottom: 30px;
   }
 
   .embla__slide {
-    flex: 0 0 90%;
+    flex: 0 0 92%;
   }
 
   .game-card {
-    height: 420px;
+    height: 380px;
   }
 
   .game-title {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
   }
 
   /* Footer */
   .footer {
-    padding: 60px 0 40px 0;
+    padding: 50px 0 30px 0;
   }
 
   .footer-top {
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
   }
 
   .footer-links {
     flex-direction: column;
-    gap: 40px;
+    gap: 30px;
     width: 100%;
+  }
+
+  .footer-column h4 {
+    margin-bottom: 16px;
   }
 
   .footer-bottom {
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
+    padding-top: 30px;
   }
 
   .footer-legal ul {
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 12px;
   }
 }
 
