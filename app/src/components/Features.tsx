@@ -151,7 +151,7 @@ const Features: React.FC = () => {
         align="left"
         visual={
           <img 
-            src="/design-ergonomics.png" 
+            src="/Iconic design. Refined comfort..png" 
             alt="DualSense Design and Comfort" 
             style={{ width: '100%', height: 'auto', borderRadius: '16px', objectFit: 'cover' }}
           />
@@ -168,7 +168,7 @@ const Features: React.FC = () => {
         align="right"
         visual={
           <img 
-            src="/battery-usb.png" 
+            src="/power.png" 
             alt="DualSense Battery and USB-C" 
             style={{ width: '100%', height: 'auto', borderRadius: '16px', objectFit: 'cover' }}
           />
@@ -182,7 +182,7 @@ const Features: React.FC = () => {
         align="center"
         visual={
           <img 
-            src="/ps5-ecosystem.png" 
+            src="/Built for PlayStation 5.png" 
             alt="PlayStation 5 Ecosystem" 
             style={{ width: '100%', height: 'auto', borderRadius: '16px', objectFit: 'cover' }}
           />
